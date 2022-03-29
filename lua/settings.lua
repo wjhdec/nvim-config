@@ -25,11 +25,21 @@ utils.opt('o', 'clipboard','unnamed,unnamedplus')
 
 cmd 'colorscheme github_light'
 
- vim.api.nvim_command([[
-	autocmd FileType go nmap <leader>b :!go build %<CR>
-	autocmd FileType go nmap <leader>r :!go run %<CR>
-	autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
-  autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
-  autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
-  autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')autocmd FileType go nmap <leader>t :!go test %<CR>
+vim.api.nvim_command([[
+autocmd FileType go nmap <leader>b :!go build %<CR>
+autocmd FileType go nmap <leader>r :!go run %<CR>
+autocmd FileType go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+autocmd FileType go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+autocmd FileType go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+autocmd FileType go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+autocmd FileType go nmap <leader>t :!go test %<CR>
 ]])
+
+require'nvim-tree'.setup {
+  actions = {
+    open_file = {
+      resize_window = true
+    }
+  }
+} 
+

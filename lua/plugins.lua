@@ -8,13 +8,13 @@ return require('packer').startup(function()
   use 'Blackrush/vim-gocode'
 
   use 'preservim/tagbar'
+  use 'kamykn/spelunker.vim'
 
   use {
     'kyazdani42/nvim-tree.lua',
     requires = {
       'kyazdani42/nvim-web-devicons', -- optional, for file icon
-    },
-    config = function() require'nvim-tree'.setup {} end
+    }
   }
 
   use {'neoclide/coc.nvim', branch = 'release'}
