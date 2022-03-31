@@ -12,4 +12,5 @@ require('plugins')
 -- Key mappings
 require('keymappings')
 
+require('tree')
 

@@ -1,8 +1,12 @@
-vim.cmd [[packadd packer.nvim]]
-
 return require('packer').startup(function()
-
   use 'wbthomason/packer.nvim'
+
+  use {
+    'romgrk/barbar.nvim',
+    requires = {'kyazdani42/nvim-web-devicons'}
+  }
+  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+  use { 'lewis6991/gitsigns.nvim', tag = 'release'}
 
   use 'fatih/vim-go'
   use 'Blackrush/vim-gocode'
@@ -33,5 +37,20 @@ return require('packer').startup(function()
 
   use "jiangmiao/auto-pairs"
   use "gisphm/vim-gitignore"
+
+  use "voldikss/vim-translator"
+  use {
+    "folke/which-key.nvim",
+    config = function()
+      require("which-key").setup {}
+    end
+  }
+  use {
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+      require("todo-comments").setup {}
+    end
+  }
 
 end)

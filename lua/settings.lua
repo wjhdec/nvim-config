@@ -1,38 +1,49 @@
-local utils = require('utils')
+local u = require('utils')
 
-local cmd = vim.cmd
 local indent = 2
 
 vim.g.mapleader = ';'
+vim.g.translator_default_engines = {'bing'}
+
+-- global options
+local o = vim.o
+-- window-local options
+local wo = vim.wo
+-- buffer-local options
+local bo = vim.bo
+
+-- global
+o.hidden = true
+o.ignorecase = true
+o.smartcase = true
+o.scrolloff = 4
+o.smartcase = true
+o.splitbelow = true
+o.splitright = true
+o.wildmode = 'list:longest'
+o.clipboard = 'unnamed,unnamedplus'
+
+-- window-local
+wo.number = true
+
+-- buffer-local
+bo.expandtab = true
+bo.shiftwidth = indent
+bo.smartindent = true
+bo.tabstop = indent
+
+
+local cmd = vim.cmd
 
 cmd 'syntax enable'
 cmd 'filetype plugin indent on'
-utils.opt('b', 'expandtab', true)
-utils.opt('b', 'shiftwidth', indent)
-utils.opt('b', 'smartindent', true)
-utils.opt('b', 'tabstop', indent)
-utils.opt('o', 'hidden', true)
-utils.opt('o', 'ignorecase', true)
-utils.opt('o', 'scrolloff', 4 )
-utils.opt('o', 'shiftround', true)
-utils.opt('o', 'smartcase', true)
-utils.opt('o', 'splitbelow', true)
-utils.opt('o', 'splitright', true)
-utils.opt('o', 'wildmode', 'list:longest')
-utils.opt('w', 'number', true)
-
-utils.opt('o', 'clipboard','unnamed,unnamedplus')
-
 cmd 'colorscheme github_light'
 
 vim.api.nvim_command([[
-autocmd FileType go nmap <leader>b :!go build %<CR>
-autocmd FileType go nmap <leader>r :!go run %<CR>
 autocmd FileType go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 autocmd FileType go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
 autocmd FileType go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 autocmd FileType go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
-autocmd FileType go nmap <leader>t :!go test %<CR>
 ]])
 
 require'nvim-tree'.setup {
