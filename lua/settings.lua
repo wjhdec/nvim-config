@@ -22,6 +22,7 @@ o.splitbelow = true
 o.splitright = true
 o.wildmode = 'list:longest'
 o.clipboard = 'unnamed,unnamedplus'
+o.relativenumber = true
 
 -- window-local
 wo.number = true
@@ -52,5 +53,5 @@ require'nvim-tree'.setup {
       resize_window = true
     }
   }
-} 
+}
 

@@ -6,8 +6,8 @@ options = { noremap = true }
 map('n', '<C-l>', '<cmd>noh<CR>', options) -- Clear highlights
 map('i', 'jk', '<Esc>', options)           -- jk to escape
 
-map('n', '<C-f>', ':NvimTreeFindFile<CR>', options)
-map('n', '<C-r>', ':NvimTreeRefresh<CR>', options)
+map('n', '<leader>nf', ':NvimTreeFindFile<CR>', options)
+map('n', '<leader>nr', ':NvimTreeRefresh<CR>', options)
 map('n', '<C-n>', ':NvimTreeToggle<CR>', options)
 
 map('n', '<F8>', ':TagbarToggle<CR>', options)

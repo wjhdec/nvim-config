@@ -53,4 +53,6 @@ return require('packer').startup(function()
     end
   }
 
+  use "lilydjwg/fcitx.vim"
+
 end)
